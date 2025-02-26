@@ -42,7 +42,7 @@
 					<execution>
 						<phase>generate-sources</phase>
 						<configuration>
-							<target name="generate-wsdl-classes">
+							<task name="generate-wsdl-classes">
 								<taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
 									<classpath refid="maven.plugin.classpath" />
 								</taskdef>
@@ -54,7 +54,7 @@
 									package="com.ebay.soap.eBLBaseComponents">
 									<binding dir="${basedir}" includes="custom-binding.xml,jaxb-binding.xjb" />
 								</wsimport>
-							</target>
+							</task>
 						</configuration>
 						<goals>
 							<goal>run</goal>
