@@ -42,7 +42,7 @@
 					<execution>
 						<phase>generate-sources</phase>
 						<configuration>
-							<task>
+							<target>
 								<taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
 									<classpath refid="maven.plugin.classpath" />
 								</taskdef>
@@ -54,7 +54,7 @@
 									package="com.ebay.soap.eBLBaseComponents">
 									<binding dir="${basedir}" includes="custom-binding.xml,jaxb-binding.xjb" />
 								</wsimport>
-							</task>
+							</target>
 						</configuration>
 						<goals>
 							<goal>run</goal>
@@ -92,7 +92,7 @@
 		<dependency>
 			<groupId>xalan</groupId>
 			<artifactId>xalan</artifactId>
-			<version>2.7.2</version>
+			<version>2.7.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
