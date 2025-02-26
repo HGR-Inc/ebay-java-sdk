@@ -37,38 +37,41 @@
 			</plugin>
 
 			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>generate-sources</phase>
-						<configuration>
-							<task name="generate-wsdl-classes">
-								<taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
-									<classpath refid="maven.plugin.classpath" />
-								</taskdef>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-antrun-plugin</artifactId>
+    <version>3.1.0</version>
+    <executions>
+        <execution>
+            <id>generate-wsdl-classes</id>
+            <phase>generate-sources</phase>
+            <configuration>
+                <target>
+                    <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+                        <classpath refid="maven.plugin.classpath" />
+                    </taskdef>
 
-								<echo message="Starting wsimport" />
-								<wsimport target="2.1" debug="false" verbose="true"
-									xnocompile="true" sourcedestdir="src/main/java"
-									wsdl="src/main/resources/eBaySvc.wsdl" quiet="true"
-									package="com.ebay.soap.eBLBaseComponents">
-									<binding dir="${basedir}" includes="custom-binding.xml,jaxb-binding.xjb" />
-								</wsimport>
-							</task>
-						</configuration>
-						<goals>
-							<goal>run</goal>
-						</goals>
-					</execution>
-				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>com.sun.xml.ws</groupId>
-						<artifactId>jaxws-tools</artifactId>
-						<version>2.1.4</version>
-					</dependency>
-				</dependencies>
-			</plugin>
+                    <echo message="Starting wsimport" />
+                    <wsimport target="2.1" debug="false" verbose="true"
+                        xnocompile="true" sourcedestdir="src/main/java"
+                        wsdl="src/main/resources/eBaySvc.wsdl" quiet="false"
+                        package="com.ebay.soap.eBLBaseComponents">
+                        <binding dir="${basedir}" includes="custom-binding.xml,jaxb-binding.xjb" />
+                    </wsimport>
+                </target>
+            </configuration>
+            <goals>
+                <goal>run</goal>
+            </goals>
+        </execution>
+    </executions>
+    <dependencies>
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-tools</artifactId>
+            <version>2.1.4</version>
+        </dependency>
+    </dependencies>
+</plugin>
 
 		</plugins>
 	</build>
