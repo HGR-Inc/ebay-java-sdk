@@ -42,7 +42,7 @@
 					<execution>
 						<phase>generate-sources</phase>
 						<configuration>
-							<target>
+							<target name="generate-wsdl-classes">
 								<taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
 									<classpath refid="maven.plugin.classpath" />
 								</taskdef>
